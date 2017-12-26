@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: http20-image-webserver-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /     
+spec:
+  tls:
+  - hosts:
+    - http20-image-webserver.cberry.xzy
+    secretName: http20-image-webserver-secret
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: http20-image-webserver.cberry.xzy
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: image-nginx
+          servicePort: 80

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<head>
+<title>Page Title</title>
+
+<script>
+    function doHTTP11(){
+    	var iframe = document.getElementById("my-deferred-iframe1");
+    	iframe.src = "./index11.html";
+    	iframe.height = "1000px";
+    }
+    function doHTTP20(){
+    	var iframe = document.getElementById("my-deferred-iframe2");
+    	iframe.src = "./index20.html";
+    	iframe.height = "1000px";
+    }        
+    </script>
+</head>
+<body style="width:100%; height:100%;">
+
+<!-- HTTP 1.1 -->
+<div style="width:45%; height:100%; float:left;">
+	<button id="btn1" onclick="doHTTP11();">HTTP 1.1 Start</button>
+<iframe src="" id="my-deferred-iframe1" marginheight="0" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>	
+</div>
+
+
+<!-- HTTP 2.0 -->
+<div style="width:45%; height:100%; float:left; margin-left: 3%;">
+	<button id="btn2" onclick="doHTTP20();">HTTP 2.0 Start</button>
+<iframe src="" id="my-deferred-iframe2" marginheight="0" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>	
+</div>
+
+
+<script>
+	
+
+</script>
+</body>
+</html>

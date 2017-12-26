@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: image-nginx
+  name: image-nginx
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: image-nginx
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}    

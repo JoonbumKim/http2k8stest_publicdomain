@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: image-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-nginx
+  template:
+    metadata:
+      labels:
+        app: image-nginx
+    spec:
+      containers:
+      - name: image-nginx
+        image: dtlabs/mystaticsite:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

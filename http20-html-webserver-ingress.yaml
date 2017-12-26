@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: http20-html-webserver-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /     
+spec:
+  tls:
+  - hosts:
+    - http20-html-webserver.com
+    secretName: http20-html-webserver-secret
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: http20-html-webserver.cberry.xzy
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: html-nginx
+          servicePort: 80
